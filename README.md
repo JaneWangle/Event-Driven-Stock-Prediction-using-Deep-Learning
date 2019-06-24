@@ -1,19 +1,13 @@
-# Event-Driven Stock Prediction using Deep-Learning
-A deep learning method for event driven stock market prediction.  Deep learning is useful for event-driven stock price movement prediction by proposing a novel neural tensor network for learning event embedding, and using a deep convolutional neural network to model the combined influence of long-term events and short-term events on stock price movements
+# Headline-Driven Stock Prediction using Deep-Learning
 
-### Important concept need to be learnt : 
-1. NLP - [http://web.stanford.edu/class/cs224n](http://web.stanford.edu/class/cs224n/)
-2. GloVe - GloVe- [https://nlp.stanford.edu/pubs/glove.pdf](https://nlp.stanford.edu/pubs/glove.pdf)
-3. NLT - [www.nltk.org](www.nltk.org)
-4. Convolutional Neural Network - [http://www.aclweb.org/anthology/D14-1181](http://www.aclweb.org/anthology/D14-1181)
+It is useful to predict stock movement based on headline of news. In this project, we train a deep model for headline driven stock market prediction.
 
+## Requirements
 
-## Sentiment Analysis for Event-Driven Stock Prediction
+`Python 3`  
+`pip install bs4`  
 
-Also try to visualize the data on smaller dimension using PCA to get the good idea of the problem
-
-Use NLP to predict stock price movement based on news from Reuters, we need the following 5 steps:
-
+## Running Steps
 
 1. Collection of Data ( essential and tricky task ) 
 
@@ -42,13 +36,32 @@ Use NLP to predict stock price movement based on news from Reuters, we need the 
 
 Use the following script to crawl it and format it to our local file
 Note : We can relate the news with company and date, this is more precise than Bloomberg News
-#### 1 Crawling of Data
+### 1 Data Preparation
+
+#### 1.1 crawl tickers (companies) list from NASDAQ 
 
 ```python
-python crawler_reuters.py 
+python src/crawler_allTickers.py 100 # select top 100% company list, the num is an ajustable parameter
+```
+Note:here need python2 urllib2, since python3 urllib3 meet http error here
+
+#### 1.2 crawl headline of company news from reuters
+
+```python
+python src/crawler_reuters.py 
 ```
 
-Yahoo Finanace is also a great place to collect the data  
+#### 1.3 crawl stock prices of companies from yahoo finance
+
+```python
+python src/crawler_yahoo_finance.py 
+```
+
+#### 1.4 align headline with stock movement and create label
+
+```python
+python src/create_label.py 
+```
 
 ### 2 Word Embedding
 To use our customized word vector, apply GloVe to train word vector from Reuters corpus in NLTK
