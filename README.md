@@ -4,8 +4,10 @@ It is useful to predict stock movement based on headline of news. In this projec
 
 ## Requirements
 
-`Python 3`  
-`pip install bs4`  
+`python3 # crawl ticker list need python2`  
+`pip install bs4` 
+`pip install gensim`  
+`pip install theano`
 
 ## Running Steps
 
@@ -41,7 +43,7 @@ Note : We can relate the news with company and date, this is more precise than B
 #### 1.1 crawl tickers (companies) list from NASDAQ 
 
 ```python
-python src/crawler_allTickers.py 100 # select top 100% company list, the num is an ajustable parameter
+python src/crawler_allTickers.py 20 # select top 100% company list, the num is an ajustable parameter
 ```
 Note:here need python2 urllib2, since python3 urllib3 meet http error here
 
