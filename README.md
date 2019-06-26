@@ -7,7 +7,10 @@ It is useful to predict stock movement based on headline of news. In this projec
 `python3 # crawl ticker list need python2`  
 `pip install bs4` 
 `pip install gensim`  
-`pip install theano`
+`pip install theano`  
+`pip install yfinance`   
+`pip install keras`  
+
 
 ## Running Steps
 
