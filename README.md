@@ -3,7 +3,7 @@
 ## python环境和模块
 
 `python3 # crawl ticker list need python2`  
-`pip install bs4` 
+`pip install bs4`   
 `pip install gensim`  
 `pip install theano`  
 `pip install yfinance`   
