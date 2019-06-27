@@ -17,9 +17,10 @@
 #### 1.1 从NASDAQ网站抓取股票代码信息 
 
 ```python
-python src/crawler_tickers.py 20 ../data/ticker_list.csv # select top 20% company list, the num is an ajustable parameter
+python src/crawler_tickers.py 20 ../data/ticker_list.csv
 ```
-注意: 这里要用python2 urllib2抓数据，因为尝试用python3 urllib3抓数据时会有网络错误
+注意: 20表示市场容量为前20%，可以调整；    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里要用python2 urllib2抓数据，因为尝试用python3 urllib3抓数据时会有网络错误
 
 #### 1.2 从Reuters抓取股票代码相关的财经新闻
 
