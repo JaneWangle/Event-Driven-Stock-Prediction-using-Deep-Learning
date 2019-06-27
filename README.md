@@ -26,7 +26,7 @@ python src/crawler_tickers.py 20 data/ticker_list.csv
 
 ```python
 python src/crawler_reuters.py tickers_file finished_tickers_file failed_tickers_file news_file
-python src/crawler_reuters.py data/ticker_list.csv data/finished_tickers.csv data/news_failed_tickers.csv ../data/news_reuters.csv  
+python src/crawler_reuters.py data/ticker_list.csv data/finished_tickers.csv data/news_failed_tickers.csv data/news_reuters.csv  
 ```
 注意: 第一次抓新闻的时候，要确保finished_tickers_file文件为空，否则会过滤相关股票的新闻
 
