@@ -17,15 +17,16 @@
 #### 1.1 从NASDAQ网站抓取股票代码信息 
 
 ```python
-python src/crawler_allTickers.py 20 # select top 20% company list, the num is an ajustable parameter
+python src/crawler_tickers.py 20 ../data/ticker_list.csv # select top 20% company list, the num is an ajustable parameter
 ```
-Note:here need python2 urllib2, since python3 urllib3 meet http error here
+注意: 这里要用python2 urllib2抓数据，因为尝试用python3 urllib3抓数据时会有网络错误
 
 #### 1.2 从Reuters抓取股票代码相关的财经新闻
 
 ```python
-python src/crawler_reuters.py 
+python src/crawler_reuters.py ../data/ticker_list.csv ../data/finished_tickers.csv ../data/news_failed_tickers.csv ../data/news_reuters.csv  
 ```
+注意: 第一次抓新闻的时候，要确保../data/finished_tickers.csv文件为空，否则会过滤相关股票的新闻
 
 #### 1.3 从Yahoo Finance抓取股票代码相关的价格信息
 
