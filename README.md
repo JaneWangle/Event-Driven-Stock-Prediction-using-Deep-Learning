@@ -57,8 +57,10 @@ python src/gen_feature_matrix.py data/news_reuters.csv data/stock_prices_final.j
 To train a Stacked-Bidirectional GRU network to predict the stock price movement.
 
 ```python
-python model_sb_gru.py
+python src/train_model.py featureMatrix_file_prefix model_path model_prefix
+python src/train_model.py data/feature_matrix/featureMatrix_ data/model/ short_headline
 ```
+注意: model_prefix根据上一步中term_type以及news_type的不同可以分为6种，short_headline、short_content、mid_headline、mid_content、long_headline以及long_content
 
 ### 4. Model
 Model folder contains a trained model with 100K news on Stacked-Bidirectional GRU network.
