@@ -8,7 +8,7 @@
 `pip install theano`  
 `pip install yfinance`   
 `pip install keras`  
-
+`pip install tensorflow`
 
 ## 操作步骤
 
@@ -49,7 +49,7 @@ python src/create_label.py data/stock_prices_raw.json data/stock_prices_final.js
 
 ```python
 python src/gen_feature_matrix.py news_file final_prices_file stop_words_file word2vec_file sentense_len output_feature_matrix term_type news_type
-python src/gen_feature_matrix.py data/news_reuters.csv data/stock_prices_final.json data/stop_words.txt data/GoogleNews-vectors-negative300.bin 20 data/featureMatrix_ short headline
+python src/gen_feature_matrix.py data/news_reuters.csv data/stock_prices_final.json data/stop_words.txt data/GoogleNews-vectors-negative300.bin 20 data/glove_feature_matrix/featureMatrix_ short headline
 ```
 注意： 这里按照8:1:1的比例将数据集划分为训练集，验证集和测试集；同时还可以调整term_type（short middle long）获取短期、中期、长期的数据；也可以调整news_type（headline content）获取新闻标题、新闻内容的数据；
 
