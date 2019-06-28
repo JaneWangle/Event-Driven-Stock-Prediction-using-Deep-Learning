@@ -48,10 +48,10 @@ python src/create_label.py data/stock_prices_raw.json data/stock_prices_final.js
 ### 2. 特征工程 (使用预训练好的word2vec词向量将数据集转变成向量表示)
 
 ```python
-python src/gen_feature_matrix.py news_file final_prices_file output_feature_matrix word2vec_file sentense_len term_type news_type
-python src/gen_feature_matrix.py data/news_reuters.csv data/stock_prices_final.json data/featureMatrix_ data/GoogleNews-vectors-negative300.bin 20 short headline
+python src/gen_feature_matrix.py news_file final_prices_file stop_words_file word2vec_file sentense_len output_feature_matrix term_type news_type
+python src/gen_feature_matrix.py data/news_reuters.csv data/stock_prices_final.json data/stop_words.txt data/GoogleNews-vectors-negative300.bin 20 data/featureMatrix_ short headline
 ```
-注意： 这里按照8:1:1的比例将数据集划分为训练集，验证集和测试集；同时还可以调整term_type（short middle long）获取短期、中期、长期的数据；也可以调整news_type（headline content）获取新闻标题、新闻内容的数据；如果需要重跑特征工程程序，请删除原有output_feature_matrix为前缀的文件，否则会在原有文件基础上进行写入
+注意： 这里按照8:1:1的比例将数据集划分为训练集，验证集和测试集；同时还可以调整term_type（short middle long）获取短期、中期、长期的数据；也可以调整news_type（headline content）获取新闻标题、新闻内容的数据；
 
 ### 3. 模型训练
 To train a Stacked-Bidirectional GRU network to predict the stock price movement.
