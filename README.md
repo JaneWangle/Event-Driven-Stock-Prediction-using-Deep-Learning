@@ -45,7 +45,7 @@ python src/create_label.py raw_prices_file final_prices_file
 python src/create_label.py data/stock_prices_raw.json data/stock_prices_final.json
 ```
 
-### 2. 特征工程 (使用预训练好的word2vec词向量将数据集转变成向量表示)
+### 2. 特征工程 (使用预训练好的词向量将数据集转变成向量表示)
 
 ```python
 python src/gen_feature_matrix.py news_file final_prices_file stop_words_file word2vec_file sentense_len output_feature_matrix term_type news_type
