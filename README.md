@@ -54,21 +54,18 @@ python src/gen_feature_matrix.py data/news_reuters.csv data/stock_prices_final.j
 注意： 这里按照8:1:1的比例将数据集划分为训练集，验证集和测试集；同时还可以调整term_type（short middle long）获取短期、中期、长期的数据；也可以调整news_type（headline content）获取新闻标题、新闻内容的数据；
 
 ### 3. 模型训练
-To train a Stacked-Bidirectional GRU network to predict the stock price movement.
 
 ```python
-python src/train_model.py featureMatrix_file_prefix model_path model_prefix
+python src/train_model.py featureMatrix_file_prefix model_path model_file_prefix
 python src/train_model.py data/feature_matrix/featureMatrix_ data/model/ short_headline
 ```
-注意: model_prefix根据上一步中term_type以及news_type的不同可以分为6种，short_headline、short_content、mid_headline、mid_content、long_headline以及long_content
+注意: model_prefix根据上一步中term_type以及news_type的不同可以分为6种，short_headline、short_content、mid_headline、mid_content、long_headline以及long_content，所以有6个模型
 
-### 4. Model
-Model folder contains a trained model with 100K news on Stacked-Bidirectional GRU network.
-To use the model
+### 4. 模型预测
 
 ```python
-cd model
-python load.py
+python src/predict.py model_path model_file_prefix word2vec_file stop_words_file sentense_len test_input test_output    
+python src/predict.py data/model/ short_headline data/GoogleNews-vectors-negative300.bin data/stop_words.txt 20 data/test_file.txt test_output
 ```
-Accuracy of model is 96.79%. Furthur improvement like attention mechanism or cyclic learning rate is required. 
+
 
