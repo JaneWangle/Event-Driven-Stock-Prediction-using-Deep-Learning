@@ -67,5 +67,5 @@ python src/train_model.py data/feature_matrix/featureMatrix_ data/model/ short_h
 python src/predict.py model_path model_file_prefix word2vec_file stop_words_file sentense_len test_input test_output    
 python src/predict.py data/model/ short_headline data/GoogleNews-vectors-negative300.bin data/stop_words.txt 20 data/test_file.txt test_output
 ```
-
+注意：输出结果中会根据输出概率的分数给出买入或者卖出的建议
 
